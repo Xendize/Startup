@@ -1,0 +1,21 @@
+Основной аналог AirDrop для Android — это функция Quick Share (ранее известная как Nearby Share) от Google.
+
+Она использует Bluetooth для обнаружения устройств и Wi-Fi для быстрой передачи файлов между Android-устройствами, Chromebook и Windows-ПК.
+
+Протокол работы
+Quick Share работает на базе протокола AWDL (Apple Wireless Direct Link), аналогичного тому, что в AirDrop от Apple: сначала Bluetooth для поиска, затем прямое Wi-Fi-соединение без интернета.
+​
+С 2025 года Google добавил совместимость с AirDrop, позволяя Pixel 10 (и скоро другие Android) обмениваться файлами напрямую с iPhone/iPad/Mac.
+​
+​
+Китайские бренды (Xiaomi, Oppo, Vivo) имеют свой протокол на Bluetooth/Wi-Fi с скоростью до 20 МБ/с, но он ограничен их устройствами.
+
+
+Тесты скоростей
+Размер файла	AirDrop	Quick Share/Nearby Share	Победитель 
+​
+24 МБ (10 фото)	    2,1с /	4,8с       AirDrop
+382 МБ (4K видео)	  18,3с	/ 31,7с      AirDrop
+568 МБ (видео)	    11–14с	/ 32с      AirDrop ​
+1 ГБ (видео)	      50с	/ 5,5мин       AirDrop
+
