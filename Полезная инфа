@@ -19,3 +19,56 @@ Quick Share работает на базе протокола AWDL (Apple Wirele
 568 МБ (видео)	    11–14с	/ 32с      AirDrop ​
 1 ГБ (видео)	      50с	/ 5,5мин       AirDrop
 
+ESP32 нативно реализует Wi-Fi Direct через библиотеку esp_wifi.h в ESP-IDF или Arduino IDE. 
+Пример: используйте wifi_init_config_t с WIFI_MODE_APSTA и esp_wifi_p2p_start() для соединения устройство-к-устройству.
+
+Настройка в ESP-IDF (рекомендуется)
+Используйте пример wifi/p2p из ESP-IDF:
+
+text
+#include "esp_wifi.h"
+#include "esp_event.h"
+
+void wifi_init_p2p() {
+    esp_netif_init();
+    esp_event_loop_create_default();
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&cfg);
+
+    wifi_config_t wifi_config = {
+        .p2p_config = {
+            .p2p_go_intent = 1,  // Стать Group Owner
+        },
+    };
+    esp_wifi_set_mode(WIFI_MODE_APSTA);
+    esp_wifi_set_config(WIFI_IF_STA, &wifi_config);
+    esp_wifi_start();
+    esp_p2p_start();  // Запуск P2P
+}
+Скомпилируйте и загрузите: idf.py build flash monitor. ESP32 объявит себя в P2P-сетях.
+​
+
+Настройка в Arduino IDE (ограниченная)
+Wi-Fi Direct не поддерживается напрямую, используйте AP+STA как эмуляцию:
+
+text
+#include <WiFi.h>
+
+const char* ssid = "ESP32-Direct";
+const char* password = "12345678";
+
+void setup() {
+    WiFi.mode(WIFI_AP_STA);
+    WiFi.softAP(ssid, password);  // Точка доступа для P2P-подобного соединения
+    Serial.println(WiFi.softAPIP());  // 192.168.4.1
+}
+Подключитесь с телефона/ПК к SSID "ESP32-Direct".
+
+Тестирование
+С устройства найдите P2P-сеть ESP32 и подключитесь.
+
+Обмен данными через сокеты на IP 192.168.4.1 (порт 80 для HTTP).
+
+Для полного P2P используйте Android Wi-Fi P2P API или wpa_supplicant.
