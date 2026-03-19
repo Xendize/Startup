@@ -19,6 +19,10 @@ Quick Share работает на базе протокола AWDL (Apple Wirele
 568 МБ (видео)	    11–14с	/ 32с      AirDrop ​
 1 ГБ (видео)	      50с	/ 5,5мин       AirDrop
 
+ТОТ САМЫЙ UGREEN ПЕРЕХОДНИК, ЕГО МОСТ-КОНТРОЛЛЕР:
+RTL9210 — мостовой контроллер компании Realtek, анонсированный в 2019 году на саммите по флэш-памяти (Flash Memory Summit). 
+Это переходник, который преобразует интерфейс USB 3.1 Gen 2 (10 Гбит/с) в PCI-Express 3.0 x2.
+
 ESP32 нативно реализует Wi-Fi Direct через библиотеку esp_wifi.h в ESP-IDF или Arduino IDE. 
 Пример: используйте wifi_init_config_t с WIFI_MODE_APSTA и esp_wifi_p2p_start() для соединения устройство-к-устройству.
 
