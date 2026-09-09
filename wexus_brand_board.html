@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>WEXUS — Brand Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12162B;
+    --quartz:#E7E8E2;
+    --quartz-line: rgba(18,22,43,0.14);
+    --cyan:#00C2B8;
+    --deepfield:#0B0E1A;
+    --graphite:#1B1E2A;
+    --paper:#F4F4F0;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#8a8d86;}
+  @page{ size: 297mm 210mm; margin:0; }
+
+  .sheet{
+    width:297mm;
+    height:210mm;
+    margin:6mm auto;
+    background:var(--paper);
+    position:relative;
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--ink);
+    overflow:hidden;
+    box-shadow:0 4px 30px rgba(0,0,0,0.25);
+  }
+
+  /* ===== TOP BAR ===== */
+  .top{
+    height:14%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 16mm;
+    border-bottom:1px solid var(--quartz-line);
+  }
+  .brandmark{ display:flex; align-items:center; gap:10mm; }
+  .logo-svg{ width:16mm; height:16mm; flex-shrink:0; }
+  .wordmark{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:15mm;
+    letter-spacing:-0.02em;
+    line-height:1;
+  }
+  .tagline{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:3.6mm;
+    color:var(--graphite);
+    text-align:right;
+    max-width:70mm;
+    line-height:1.4;
+  }
+  .tagline b{ color:var(--cyan); font-weight:500; }
+
+  /* ===== BODY GRID ===== */
+  .body{
+    height:76%;
+    display:grid;
+    grid-template-columns: 26% 1px 40% 1px 33%;
+    padding:0 16mm;
+    overflow:hidden;
+  }
+  .col{ padding:6mm 8mm 6mm 0; min-width:0; overflow:hidden; }
+  .col.center{ padding:6mm 8mm; min-width:0; overflow:hidden; }
+  .col.right{ padding:6mm 0 6mm 8mm; min-width:0; overflow:hidden; }
+  .divider{ background:var(--quartz-line); }
+
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:2.6mm;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--cyan);
+    margin-bottom:3mm;
+    display:block;
+  }
+
+  .essence{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:6.4mm;
+    line-height:1.15;
+    margin:0 0 5mm 0;
+  }
+  .usp{
+    font-size:3.4mm;
+    line-height:1.55;
+    color:var(--graphite);
+    margin:0 0 6mm 0;
+  }
+  .keywords{
+    display:flex; flex-wrap:wrap; gap:2.2mm;
+    margin-top:6mm;
+  }
+  .kw{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:2.7mm;
+    padding:1.6mm 3mm;
+    border:1px solid var(--quartz-line);
+    border-radius:2mm;
+    color:var(--graphite);
+  }
+
+  /* ===== CENTER: logo system ===== */
+  .center-block{ margin-bottom:4mm; }
+  .logo-system-row{
+    display:flex;
+    align-items:flex-start;
+    gap:3mm;
+  }
+  .lockup-dark{
+    background:var(--ink);
+    border-radius:2.5mm;
+    padding:2.5mm 3mm;
+    display:flex; align-items:center; gap:2mm;
+    flex-shrink:0;
+  }
+  .lockup-dark .logo-svg-l{ width:7mm; height:7mm; flex-shrink:0; }
+  .lockup-dark .wm{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:5mm; color:var(--quartz); white-space:nowrap; }
+  .lockup-caption{ font-family:'IBM Plex Mono',monospace; font-size:1.8mm; color:var(--graphite); opacity:0.6; margin-top:1.5mm; text-align:center;}
+
+  .variant-set{ display:flex; gap:2.5mm; min-width:0; }
+  .variant{ width:17mm; min-width:17mm; text-align:center; flex-shrink:0; }
+  .variant .icon-box{
+    width:9mm; height:9mm; border-radius:2mm;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--quartz-line);
+    margin:0 auto;
+  }
+  .variant .icon-box.dark{ background:var(--ink); border:none; }
+  .variant .icon-box svg{ width:60%; height:60%; }
+  .variant .v-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.7mm;
+    line-height:1.3;
+    color:var(--graphite);
+    opacity:0.75;
+    margin-top:1.3mm;
+    word-wrap:break-word;
+  }
+
+  /* Graphic language — self-explanatory legend rows */
+  .glang-list{ display:flex; flex-direction:column; gap:2.8mm; }
+  .glang-item{
+    display:flex;
+    align-items:flex-start;
+    gap:3.5mm;
+    border:1px solid var(--quartz-line);
+    border-radius:2.5mm;
+    padding:2.2mm 3mm;
+    background:#fff;
+  }
+  .glang-item .g-icon{ width:8mm; height:8mm; flex-shrink:0; margin-top:0.5mm; }
+  .glang-item .g-text{ min-width:0; }
+  .glang-item .g-title{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:2.9mm;
+    margin-bottom:0.8mm;
+  }
+  .glang-item .g-desc{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:2.35mm;
+    line-height:1.35;
+    color:var(--graphite);
+    opacity:0.85;
+  }
+
+  /* Photography style */
+  .photo-frame{
+    width:100%; height:27mm;
+    border-radius:2.5mm;
+    background: radial-gradient(circle at 30% 20%, #232a49 0%, var(--deepfield) 55%, #05070e 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .photo-frame svg{ width:100%; height:100%; display:block; }
+  .photo-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:2.15mm; color:var(--graphite); opacity:0.75; margin-top:2mm; line-height:1.45;
+  }
+
+  /* ===== RIGHT: colors + type ===== */
+  .swatch-row{ display:flex; flex-direction:column; gap:3mm; margin-bottom:8mm; }
+  .swatch{ display:flex; align-items:center; gap:4mm; }
+  .swatch .chip{ width:11mm; height:11mm; border-radius:2mm; border:1px solid var(--quartz-line); flex-shrink:0; }
+  .swatch .meta{ font-family:'IBM Plex Mono', monospace; font-size:2.6mm; line-height:1.5; }
+  .swatch .meta b{ font-family:'IBM Plex Sans',sans-serif; font-size:3mm; display:block; font-weight:600; }
+
+  .type-sample{ margin-bottom:5mm; }
+  .type-sample .tname{ font-family:'IBM Plex Mono', monospace; font-size:2.6mm; color:var(--cyan); margin-bottom:1.5mm; }
+  .type-sample .display{ font-family:'Space Grotesk', sans-serif; font-size:7mm; font-weight:600; line-height:1; }
+  .type-sample .body-sample{ font-family:'IBM Plex Sans', sans-serif; font-size:3.2mm; color:var(--graphite); margin-top:1.5mm; }
+
+  /* ===== BOTTOM STRIP ===== */
+  .bottom{
+    height:10%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 16mm;
+    border-top:1px solid var(--quartz-line);
+  }
+  .bottom .nodal-strip{ display:flex; gap:2mm; align-items:center; }
+  .nodal-strip .n-dot{ width:1.6mm; height:1.6mm; border-radius:50%; background:var(--ink); opacity:0.35; }
+  .nodal-strip .n-dot.on{ background:var(--cyan); opacity:1; }
+  .bottom .meta-text{ font-family:'IBM Plex Mono', monospace; font-size:2.4mm; color:var(--graphite); opacity:0.6; }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- TOP -->
+  <div class="top">
+    <div class="brandmark">
+      <svg class="logo-svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="9" fill="#12162B"/>
+        <circle cx="50" cy="14" r="3.2" fill="#12162B"/>
+        <circle cx="82" cy="68" r="3.2" fill="#12162B"/>
+        <circle cx="18" cy="68" r="3.2" fill="#12162B"/>
+        <line x1="50" y1="50" x2="50" y2="18" stroke="#12162B" stroke-width="2.4"/>
+        <line x1="50" y1="50" x2="79" y2="66" stroke="#12162B" stroke-width="2.4"/>
+        <line x1="50" y1="50" x2="21" y2="66" stroke="#12162B" stroke-width="2.4"/>
+      </svg>
+      <div class="wordmark">wexus</div>
+    </div>
+    <div class="tagline">Твой узел. Твои данные.<br><b>●</b> Персональное физическое хранилище нового поколения</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT -->
+    <div class="col">
+      <span class="label">Brand essence</span>
+      <p class="essence">Данные, которые физически принадлежат тебе.</p>
+      <span class="label">USP</span>
+      <p class="usp">WEXUS — твой личный узел данных: покупаешь один раз и получаешь собственное беспроводное хранилище, доступное с любых устройств — с интернетом и без него.</p>
+      <div class="keywords">
+        <span class="kw">владение</span>
+        <span class="kw">независимость</span>
+        <span class="kw">мобильность</span>
+        <span class="kw">приватность</span>
+        <span class="kw">надёжность</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- CENTER -->
+    <div class="col center">
+
+      <div class="center-block">
+        <span class="label">Logo system</span>
+        <div class="logo-system-row">
+          <div>
+            <div class="lockup-dark">
+              <svg class="logo-svg-l" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="9" fill="#00C2B8"/>
+                <circle cx="50" cy="14" r="3.2" fill="#E7E8E2"/>
+                <circle cx="82" cy="68" r="3.2" fill="#E7E8E2"/>
+                <circle cx="18" cy="68" r="3.2" fill="#E7E8E2"/>
+                <line x1="50" y1="50" x2="50" y2="18" stroke="#E7E8E2" stroke-width="2.4"/>
+                <line x1="50" y1="50" x2="79" y2="66" stroke="#E7E8E2" stroke-width="2.4"/>
+                <line x1="50" y1="50" x2="21" y2="66" stroke="#E7E8E2" stroke-width="2.4"/>
+              </svg>
+              <div class="wm">wexus</div>
+            </div>
+            <div class="lockup-caption">основной лого-блок</div>
+          </div>
+
+          <div class="variant-set">
+            <div class="variant">
+              <div class="icon-box">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="9" fill="#12162B"/>
+                  <circle cx="50" cy="14" r="3.2" fill="#12162B"/>
+                  <circle cx="82" cy="68" r="3.2" fill="#12162B"/>
+                  <circle cx="18" cy="68" r="3.2" fill="#12162B"/>
+                  <line x1="50" y1="50" x2="50" y2="18" stroke="#12162B" stroke-width="2.4"/>
+                  <line x1="50" y1="50" x2="79" y2="66" stroke="#12162B" stroke-width="2.4"/>
+                  <line x1="50" y1="50" x2="21" y2="66" stroke="#12162B" stroke-width="2.4"/>
+                </svg>
+              </div>
+              <div class="v-caption">знак отдельно</div>
+            </div>
+            <div class="variant">
+              <div class="icon-box dark">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="9" fill="#00C2B8"/>
+                  <circle cx="50" cy="14" r="3.2" fill="#E7E8E2"/>
+                  <circle cx="82" cy="68" r="3.2" fill="#E7E8E2"/>
+                  <circle cx="18" cy="68" r="3.2" fill="#E7E8E2"/>
+                  <line x1="50" y1="50" x2="50" y2="18" stroke="#E7E8E2" stroke-width="2.4"/>
+                  <line x1="50" y1="50" x2="79" y2="66" stroke="#E7E8E2" stroke-width="2.4"/>
+                  <line x1="50" y1="50" x2="21" y2="66" stroke="#E7E8E2" stroke-width="2.4"/>
+                </svg>
+              </div>
+              <div class="v-caption">инверсия (тёмный фон)</div>
+            </div>
+            <div class="variant">
+              <div class="icon-box">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="9" fill="#12162B"/>
+                  <circle cx="50" cy="14" r="3.2" fill="#12162B"/>
+                  <circle cx="82" cy="68" r="3.2" fill="#12162B"/>
+                  <circle cx="18" cy="68" r="3.2" fill="#12162B"/>
+                  <line x1="50" y1="50" x2="50" y2="18" stroke="#12162B" stroke-width="1.8"/>
+                  <line x1="50" y1="50" x2="79" y2="66" stroke="#12162B" stroke-width="1.8"/>
+                  <line x1="50" y1="50" x2="21" y2="66" stroke="#12162B" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <div class="v-caption">favicon 16×16</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-block">
+        <span class="label">Graphic language — что это и где применяется</span>
+        <div class="glang-list">
+          <div class="glang-item">
+            <svg class="g-icon" viewBox="0 0 100 100">
+              <g stroke="#12162B" stroke-width="3" opacity="0.5">
+                <line x1="15" y1="15" x2="45" y2="45"/><line x1="45" y1="45" x2="80" y2="25"/>
+                <line x1="45" y1="45" x2="30" y2="80"/><line x1="45" y1="45" x2="85" y2="70"/>
+              </g>
+              <circle cx="45" cy="45" r="7" fill="#00C2B8"/>
+              <g fill="#12162B" opacity="0.6">
+                <circle cx="15" cy="15" r="4.5"/><circle cx="80" cy="25" r="4.5"/>
+                <circle cx="30" cy="80" r="4.5"/><circle cx="85" cy="70" r="4.5"/>
+              </g>
+            </svg>
+            <div class="g-text">
+              <div class="g-title">Nodal grid — сетка точек и линий</div>
+              <div class="g-desc">Метафора «сети подключённых устройств». Лёгкий фон (5–8% непрозрачности) на слайдах, упаковке и сайте — никогда как основной элемент.</div>
+            </div>
+          </div>
+          <div class="glang-item">
+            <svg class="g-icon" viewBox="0 0 100 100">
+              <rect x="10" y="20" width="38" height="60" rx="8" fill="none" stroke="#12162B" stroke-width="3"/>
+              <rect x="55" y="10" width="38" height="34" rx="8" fill="#12162B"/>
+              <rect x="55" y="52" width="38" height="34" rx="8" fill="none" stroke="#00C2B8" stroke-width="3"/>
+            </svg>
+            <div class="g-text">
+              <div class="g-title">Единый радиус скругления — 4pt</div>
+              <div class="g-desc">Один и тот же угол скругления на кнопках, карточках сайта, упаковке и корпусе устройства — материалы бренда «говорят на одном языке».</div>
+            </div>
+          </div>
+          <div class="glang-item">
+            <svg class="g-icon" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="34" fill="none" stroke="#12162B" stroke-width="3"/>
+              <circle cx="50" cy="50" r="11" fill="#00C2B8"/>
+            </svg>
+            <div class="g-text">
+              <div class="g-title">Сигнальная точка — акцент cyan</div>
+              <div class="g-desc">Только точечно: LED на устройстве, статус в приложении, одна акцентная кнопка на экране — индикатор «активного соединения».</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-block" style="margin-bottom:0;">
+        <span class="label">Photography style — ориентир для съёмки</span>
+        <div class="photo-frame">
+          <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4a5178"/>
+                <stop offset="45%" stop-color="#232a49"/>
+                <stop offset="100%" stop-color="#0d1024"/>
+              </linearGradient>
+              <linearGradient id="edgeHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#8890c0" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#8890c0" stop-opacity="0"/>
+              </linearGradient>
+              <radialGradient id="ledGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#00C2B8" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#00C2B8" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#000000" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <g stroke="#8fa0c8" stroke-width="0.5" opacity="0.14">
+              <line x1="20" y1="20" x2="70" y2="45"/><line x1="330" y1="30" x2="290" y2="55"/>
+              <line x1="40" y1="140" x2="80" y2="115"/><line x1="360" y1="130" x2="320" y2="110"/>
+            </g>
+            <g fill="#8fa0c8" opacity="0.18">
+              <circle cx="20" cy="20" r="2.2"/><circle cx="70" cy="45" r="2.2"/>
+              <circle cx="330" cy="30" r="2.2"/><circle cx="290" cy="55" r="2.2"/>
+              <circle cx="40" cy="140" r="2.2"/><circle cx="80" cy="115" r="2.2"/>
+              <circle cx="360" cy="130" r="2.2"/><circle cx="320" cy="110" r="2.2"/>
+            </g>
+
+            <g stroke="#00C2B8" stroke-width="1" stroke-dasharray="2.5 3" opacity="0.65">
+              <path d="M 150 78 C 120 55, 95 48, 68 40" fill="none"/>
+              <path d="M 250 78 C 280 100, 305 108, 335 118" fill="none"/>
+            </g>
+
+            <g transform="translate(46,18)" opacity="0.9">
+              <rect x="0" y="0" width="26" height="46" rx="5" fill="#1b2040" stroke="#4d5680" stroke-width="1"/>
+              <rect x="3" y="4" width="20" height="34" rx="1.5" fill="#0b0e1a"/>
+              <circle cx="13" cy="41" r="1.6" fill="#4d5680"/>
+            </g>
+            <g transform="translate(320,100)" opacity="0.9">
+              <path d="M0 28 L60 28 L54 34 L6 34 Z" fill="#1b2040" stroke="#4d5680" stroke-width="1"/>
+              <rect x="6" y="0" width="42" height="28" rx="2.5" fill="#1b2040" stroke="#4d5680" stroke-width="1"/>
+              <rect x="9" y="3" width="36" height="21" rx="1" fill="#0b0e1a"/>
+            </g>
+
+            <ellipse cx="200" cy="128" rx="95" ry="12" fill="url(#shadow)"/>
+
+            <g>
+              <rect x="105" y="65" width="190" height="52" rx="14" fill="url(#bodyGrad)"/>
+              <rect x="105" y="65" width="190" height="18" rx="14" fill="url(#edgeHighlight)"/>
+              <rect x="105.5" y="65.5" width="189" height="51" rx="13.5" fill="none" stroke="#5b6390" stroke-width="0.6" opacity="0.5"/>
+              <g stroke="#ffffff" stroke-width="0.4" opacity="0.06">
+                <line x1="120" y1="72" x2="280" y2="72"/>
+                <line x1="120" y1="78" x2="280" y2="78"/>
+                <line x1="120" y1="104" x2="280" y2="104"/>
+                <line x1="120" y1="110" x2="280" y2="110"/>
+              </g>
+              <rect x="285" y="87" width="7" height="4" rx="1.5" fill="#05060c"/>
+              <circle cx="130" cy="91" r="9" fill="url(#ledGlow)"/>
+              <circle cx="130" cy="91" r="3" fill="#00C2B8"/>
+              <text x="150" y="95" font-family="IBM Plex Mono, monospace" font-size="9" fill="#aab2d8" opacity="0.7">1TB</text>
+            </g>
+          </svg>
+        </div>
+        <p class="photo-caption">Стилизованный референс (не фото): матовый корпус, холодный свет, cyan-индикатор соединения между устройствами. Реальную съёмку — в этом же настроении.</p>
+      </div>
+
+    </div>
+    <div class="divider"></div>
+
+    <!-- RIGHT -->
+    <div class="col right">
+      <span class="label">Color palette</span>
+      <div class="swatch-row">
+        <div class="swatch"><div class="chip" style="background:#12162B"></div><div class="meta"><b>Nexus Ink</b>#12162B · RGB 18 22 43</div></div>
+        <div class="swatch"><div class="chip" style="background:#E7E8E2"></div><div class="meta"><b>Quartz</b>#E7E8E2 · RGB 231 232 226</div></div>
+        <div class="swatch"><div class="chip" style="background:#00C2B8"></div><div class="meta"><b>Signal Cyan</b>#00C2B8 · RGB 0 194 184</div></div>
+        <div class="swatch"><div class="chip" style="background:#0B0E1A"></div><div class="meta"><b>Deep Field</b>#0B0E1A · RGB 11 14 26</div></div>
+      </div>
+
+      <span class="label">Typography</span>
+      <div class="type-sample">
+        <div class="tname">Space Grotesk — заголовки</div>
+        <div class="display">Aa 256GB</div>
+      </div>
+      <div class="type-sample">
+        <div class="tname">IBM Plex Sans — основной текст</div>
+        <div class="body-sample">Твои данные всегда физически с тобой — без абонентской платы.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+    <div class="nodal-strip">
+      <div class="n-dot on"></div><div class="n-dot"></div><div class="n-dot"></div><div class="n-dot"></div>
+      <div class="n-dot"></div><div class="n-dot on"></div><div class="n-dot"></div><div class="n-dot"></div>
+      <div class="n-dot"></div><div class="n-dot"></div><div class="n-dot on"></div><div class="n-dot"></div>
+    </div>
+    <div class="meta-text">WEXUS BRAND BOARD · v3.0 · «Стартап как диплом»</div>
+  </div>
+
+</div>
+
+</body>
+</html>
